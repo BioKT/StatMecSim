@@ -30,7 +30,12 @@ sphinx:
   extra_extensions:
     - sphinx_exercise
     - sphinx_togglebutton
- 
+
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+    - amsmath 
 # Information about where the book exists on the web
 repository:
   url: https://github.com/BioKT/statmecsim  # Online location of your book
