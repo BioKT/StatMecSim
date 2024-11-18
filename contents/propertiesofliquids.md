@@ -11,7 +11,10 @@ particle density $\rho=N/V$, where $N$ is the number of particles and
 $V$ is the volume. With simulations, we can interrogate their internal
 structure. One of the most important quantities that can be computed
 from simulations is the *radial distribution function* (in short, RDF or
-$g(r)$). Importantly,this quantity can also be accessed experimentally. 
+$g(r)$). The RDF can be defined as the number of particles at a distance 
+$r$ from another particle divided by the number at the same distance in
+an ideal gas of the same density [allen2017computer]. 
+Importantly,this quantity can also be accessed experimentally. 
 
 To calculate the rdf we simply need to histogram pairwise distances and
 calculate
@@ -30,7 +33,9 @@ coordination shell of nearest neighbours. A second peak at longer
 distances is also often found. As the distribution becomes
 homogeneous at longer $r$ (greater than the correlation length $\xi$),
 the density reaches that of the bulk and the value of the RDF plateaus
-at 1.
+at 1. Due to finite size effects, the calculated $g(r)$ may not
+converge to 1, in which case a correction to the RDF may be necessary.
+
 
 When using a rigorous definition of the RDF, we can relate it to the 
 ``effective pair potential'' or potential of mean force $v(r)$ as 
