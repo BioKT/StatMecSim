@@ -1,0 +1,566 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Classical mechanics &#8212; Statistical Mechanics and Molecular Simulation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contents/classicalmechanics';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Static properties of liquids" href="propertiesofliquids.html" />
+    <link rel="prev" title="Welcome" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Statistical Mechanics and Molecular Simulation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Classical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="propertiesofliquids.html">Static properties of liquids</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/BioKT/statmecsim" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/BioKT/statmecsim/issues/new?title=Issue%20on%20page%20%2Fcontents/classicalmechanics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/contents/classicalmechanics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Classical mechanics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-equations">Newton’s equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-conservation">Energy conservation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="classical-mechanics">
+<h1>Classical mechanics<a class="headerlink" href="#classical-mechanics" title="Permalink to this heading">#</a></h1>
+<section id="newton-s-equations">
+<h2>Newton’s equations<a class="headerlink" href="#newton-s-equations" title="Permalink to this heading">#</a></h2>
+<p>We will start this course with a reminder of Newton’s equations of motion,
+formulated by English physicist and mathematitian Sir Isaac Newton in
+the <em>Philosophiae Naturalis Principia Mathematica</em> in 1687. The laws
+establish the following:</p>
+<ul class="simple">
+<li><p>In the absence of external forces, a particle <span class="math notranslate nohighlight">\(i\)</span> will either be at rest or
+continue its motion following a straight line with a constant velocity,
+<span class="math notranslate nohighlight">\(\mathbf{v}_i\)</span>.</p></li>
+<li><p>An eternal force <span class="math notranslate nohighlight">\(\mathbf{f}_i\)</span> on a body produces an acceleration equal
+to the force divided by the mass of the body, or</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-contents-classicalmechanics-0">
+<span class="eqno">(1)<a class="headerlink" href="#equation-contents-classicalmechanics-0" title="Permalink to this equation">#</a></span>\[m_i\ddot{\mathbf{r}}_i=\mathbf{f}_i(\mathbf{r}_i)\]</div>
+<ul class="simple">
+<li><p>If a body A exerts a force on another body, B, then body B exerts a force
+in body A such that</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-contents-classicalmechanics-1">
+<span class="eqno">(2)<a class="headerlink" href="#equation-contents-classicalmechanics-1" title="Permalink to this equation">#</a></span>\[\bf{f}_{AB}=-\bf{f}_{BA}\]</div>
+<p>Here we are already introducing a certain amount of notation. For a particle <span class="math notranslate nohighlight">\(i\)</span>
+its Cartesian coordinates are expressed using vector <span class="math notranslate nohighlight">\(\mathbf{r}_i\)</span>. Hence
+for a system with <span class="math notranslate nohighlight">\(N\)</span> particles we will denote the position vectors collectively
+as <span class="math notranslate nohighlight">\(\mathbf{r}^N\)</span>. Also, we are using the force vector <span class="math notranslate nohighlight">\(\mathbf{f}_i\)</span>, corresponding
+to the force acting on particle <span class="math notranslate nohighlight">\(i\)</span>. This force can be obtained as a partial
+derivative of a potential <span class="math notranslate nohighlight">\(V\)</span>, specifying the interactions in the <span class="math notranslate nohighlight">\(N\)</span> particle
+system</p>
+<div class="math notranslate nohighlight" id="equation-eq-force">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-force" title="Permalink to this equation">#</a></span>\[\mathbf{f}_i(\mathbf{r}^N)=-\frac{\partial V(\mathbf{r}^N)}{\partial \mathbf{r}_i}\]</div>
+<p>For most of this course, the potential energy that we will be considering will be
+due to molecular interactions that we will consider to be pair-wise additive
+and dependent on the distance between particles. Hence,</p>
+<div class="math notranslate nohighlight" id="equation-contents-classicalmechanics-2">
+<span class="eqno">(4)<a class="headerlink" href="#equation-contents-classicalmechanics-2" title="Permalink to this equation">#</a></span>\[V(\mathbf{r}^N)=\sum_{i=1}^N\sum_{j=i+1}^Nv(r_{ij})\]</div>
+<p>where we are avoiding double-counting of interactions in the sums. We can
+substitute in Equation <a class="reference internal" href="#equation-eq-force">(3)</a> and see that the force acting on particle <span class="math notranslate nohighlight">\(i\)</span>
+is in fact a sum over pairwise forces</p>
+<div class="math notranslate nohighlight" id="equation-contents-classicalmechanics-3">
+<span class="eqno">(5)<a class="headerlink" href="#equation-contents-classicalmechanics-3" title="Permalink to this equation">#</a></span>\[\mathbf{f}_i=-\frac{\partial V(\mathbf{r}^N)}{\partial \mathbf{r}_i} = 
+-\sum_{i=1}^N\sum_{j=i+1}^N\frac{\partial v(r_{ij})}{\partial \mathbf{r}_i}
+=\sum_{i\neq j}^N \mathbf{f}_{ij} \]</div>
+</section>
+<section id="energy-conservation">
+<h2>Energy conservation<a class="headerlink" href="#energy-conservation" title="Permalink to this heading">#</a></h2>
+<p>One of the most fundamental properties of the mechanical systems that we will
+consider in this course is energy conservation. In general, we can write
+the hamiltonian of the system (<span class="math notranslate nohighlight">\(\mathcal{H}\)</span>) as the sum of the kinetic energy (<span class="math notranslate nohighlight">\(K\)</span>) and the potential
+energy (<span class="math notranslate nohighlight">\(V\)</span>),</p>
+<div class="math notranslate nohighlight" id="equation-contents-classicalmechanics-4">
+<span class="eqno">(6)<a class="headerlink" href="#equation-contents-classicalmechanics-4" title="Permalink to this equation">#</a></span>\[H = K + V\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-contents-classicalmechanics-5">
+<span class="eqno">(7)<a class="headerlink" href="#equation-contents-classicalmechanics-5" title="Permalink to this equation">#</a></span>\[K=\sum_i^N\frac{1}{2}m_i\dot{\mathbf{r}}_i^2=\sum_i^N\frac{\mathbf{p}_i^2}{2m_i}\]</div>
+<p>Because <span class="math notranslate nohighlight">\(H\)</span> is a constant of motion, we have</p>
+<div class="math notranslate nohighlight" id="equation-contents-classicalmechanics-6">
+<span class="eqno">(8)<a class="headerlink" href="#equation-contents-classicalmechanics-6" title="Permalink to this equation">#</a></span>\[\frac{d\mathcal{H}}{dt}=0\]</div>
+<p>which can be further expanded as</p>
+<div class="math notranslate nohighlight" id="equation-contents-classicalmechanics-7">
+<span class="eqno">(9)<a class="headerlink" href="#equation-contents-classicalmechanics-7" title="Permalink to this equation">#</a></span>\[\frac{d\mathcal{H}}{dt}=\frac{d}{dt}\bigg[\sum_i^N\frac{\mathbf{p}_i^2}{2m_i} + V\bigg]\]</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./contents"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="propertiesofliquids.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Static properties of liquids</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-equations">Newton’s equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-conservation">Energy conservation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David De Sancho
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Programming in Python Lecture Notes is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
